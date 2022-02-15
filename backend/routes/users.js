@@ -1,27 +1,17 @@
-// Split express and router into separate variables for clarity.
 const express = require('express');
 const router = express.Router();
 
 // For salting passwords but we need to review this. Should be SHA-2 min. Maybe use bcrypt.
-const md5 = require('md5');
+//const md5 = require('md5');
 
 // Check how to use passport for handling sessions
-
-let User = require('../models/user.model');
 
 router.route('/').get((req, res) => {
     res.send('user router');
 });
 
-router.route('/signup').post((req, res) => {
-    const username = req.body.username;
-    const email = req.body.email;
-    let password = req.body.password; // let not var...
-
-    password = md5(password);
 const router = require('express').Router();
-//For salting passwords
-//const md5 = require('md5');
+
 let User = require('../models/User');
 
 const LocalStrategy = require('passport-local').Strategy;
